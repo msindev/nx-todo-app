@@ -4,10 +4,20 @@
 </head>
 
 <body class="container mx-auto w-1/2">
-  <mat-tab-group fitInkBarToContent mat-stretch-tabs>
-    <mat-tab label="All">Content 1</mat-tab>
-    <mat-tab label="Active">Content 2 is the best</mat-tab>
-    <mat-tab label="Completed">Content 3</mat-tab>
+  <mat-tab-group
+    fitInkBarToContent
+    mat-stretch-tabs
+    class="border-b-1 border-black"
+  >
+    <mat-tab label="All">
+      <nx-todo-app-todo-list></nx-todo-app-todo-list>
+    </mat-tab>
+    <mat-tab label="Active">
+      <nx-todo-app-todo-list></nx-todo-app-todo-list>
+    </mat-tab>
+    <mat-tab label="Completed">
+      <nx-todo-app-todo-list></nx-todo-app-todo-list>
+    </mat-tab>
   </mat-tab-group>
 </body>
 
