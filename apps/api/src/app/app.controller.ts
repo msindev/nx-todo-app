@@ -35,6 +35,7 @@ export class AppController {
 
   @Post()
   @ApiOperation({ summary: 'Add a new ToDo' })
+  @ApiBody({ type: ToDoDto })
   @ApiResponse({ status: 201, description: 'ToDo successfully added' })
   addToDo(@Body() todo: ToDoDto) {
     return this.appService.addToDo(todo);
