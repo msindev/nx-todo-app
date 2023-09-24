@@ -1,0 +1,81 @@
+openapi: 3.0.0
+paths:
+  /api/v1/tasks:
+    get:
+      operationId: AppController_getAllToDos
+      summary: Get all ToDos
+      parameters: []
+      responses:
+        '200':
+          description: Returns an array of ToDos
+      tags: &ref_0
+        - tasks
+    post:
+      operationId: AppController_addToDo
+      summary: Add a new ToDo
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ToDoDto'
+      responses:
+        '201':
+          description: ToDo successfully added
+      tags: *ref_0
+  /api/v1/tasks/{id}/done:
+    put:
+      operationId: AppController_updateStatus
+      summary: Update the status of a ToDo
+      parameters:
+        - name: id
+          required: true
+          in: path
+          description: ToDo ID
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                done:
+                  type: boolean
+      responses:
+        '200':
+          description: ToDo updated successfully
+      tags: *ref_0
+  /api/v1/tasks/{id}:
+    delete:
+      operationId: AppController_deleteToDo
+      summary: Delete a ToDo
+      parameters:
+        - name: id
+          required: true
+          in: path
+          description: ToDo ID
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ToDo deleted successfully
+      tags: *ref_0
+info:
+  title: Todo API
+  description: API documentation for Todo application
+  version: '1.0'
+  contact: {}
+tags: []
+servers: []
+components:
+  schemas:
+    ToDoDto:
+      type: object
+      properties:
+        task:
+          type: string
+          description: Task
+      required:
+        - task

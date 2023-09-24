@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@nx-todo-app/openapi-generated": ["libs/openapi-generated/src/index.ts"],
       "@nx-todo-app/types": ["libs/types/src/index.ts"],
       "@nx-todo-app/ui": ["libs/ui/src/index.ts"]
     }
