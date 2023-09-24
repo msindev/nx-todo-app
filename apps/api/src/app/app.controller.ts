@@ -17,8 +17,8 @@ import {
   ApiResponse,
 } from '@nestjs/swagger';
 
-@ApiTags('todos')
-@Controller('todos')
+@ApiTags('tasks')
+@Controller('/v1/tasks')
 export class AppController {
   constructor(private readonly appService: AppService) {}
 

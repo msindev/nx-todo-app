@@ -26,7 +26,7 @@ export class AppService {
   updateToDo(id: string, done: boolean) {
     const todo = this.todos.find((todo) => todo.id === id);
     if (todo) {
-      todo.done = done !== undefined ? done : todo.done;
+      todo.done = done ?? todo.done;
       return { message: `ToDo with ID ${id} updated successfully` };
     } else {
       throw new NotFoundException(`ToDo with ID ${id} not found`);
