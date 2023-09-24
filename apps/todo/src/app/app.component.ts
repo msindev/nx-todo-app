@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MatTabsModule } from '@angular/material/tabs';
-import { TodoListComponent } from './todo-list/todo-list.component';
+import { TodoListComponent } from './components/todo-list/todo-list.component';
 
 @Component({
   standalone: true,
