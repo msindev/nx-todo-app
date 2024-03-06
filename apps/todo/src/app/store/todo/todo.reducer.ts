@@ -2,6 +2,9 @@ import { createReducer, on } from '@ngrx/store';
 import { ToDo } from '@nx-todo-app/types';
 import * as TodoActions from './todo.actions';
 
+export interface AppState {
+  tasks: TodoState;
+}
 export interface TodoState {
   tasks: ToDo[];
   loading: boolean;

@@ -1,7 +1,23 @@
-<form class="flex mt-16">
+<form class="flex mt-16" (submit)="addTask(taskInput.value)">
   <mat-form-field class="w-9/12">
     <mat-label>add details</mat-label>
-    <input matInput />
+    <input matInput #taskInput />
   </mat-form-field>
-  <button mat-raised-button color="primary" class="mt-2 ml-16">Add</button>
+  <button type="submit" mat-raised-button color="primary" class="mt-2 ml-16">
+    Add
+  </button>
 </form>
+
+<ul>
+  <li *ngFor="let item of tasks$ | async">
+    <mat-checkbox
+      [checked]="item.done"
+      (change)="updateTaskStatus(item, $event.checked)"
+    >
+      <span>{{ item.task }}</span>
+    </mat-checkbox>
+    <button mat-icon-button color="warn" (click)="deleteTask(item.id)">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </li>
+</ul>
