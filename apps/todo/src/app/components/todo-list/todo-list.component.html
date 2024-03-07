@@ -9,7 +9,7 @@
 </form>
 
 <ul>
-  <li *ngFor="let item of tasks" class="list-item">
+  <li *ngFor="let item of tasks" class="flex items-center justify-between">
     <mat-checkbox
       [checked]="item.done"
       (change)="updateTaskStatus(item, $event.checked)"

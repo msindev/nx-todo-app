@@ -30,7 +30,6 @@ import { AppState } from '../../store/todo/todo.reducer';
     MatIconModule,
   ],
   templateUrl: './todo-list.component.html',
-  styleUrls: ['./todo-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TodoListComponent {
