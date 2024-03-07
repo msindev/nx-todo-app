@@ -3,6 +3,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
+  Input,
   ViewChild,
 } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
@@ -11,7 +12,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { Store } from '@ngrx/store';
 import { ToDo } from '@nx-todo-app/types';
-import { Observable, tap } from 'rxjs';
 import {
   addTask,
   deleteTask,
@@ -36,13 +36,10 @@ import { AppState } from '../../store/todo/todo.reducer';
 export class TodoListComponent {
   @ViewChild('taskInput')
   taskInput!: ElementRef<HTMLInputElement>;
-  tasks$: Observable<ToDo[]>;
+  @Input()
+  tasks!: ToDo[] | null;
 
-  constructor(private store: Store<AppState>) {
-    this.tasks$ = this.store
-      .select((state) => state.tasks.tasks)
-      .pipe(tap((tasks) => console.log('Component: ', tasks)));
-  }
+  constructor(private store: Store<AppState>) {}
 
   addTask(taskInput: string): void {
     if (taskInput.trim() === '') {

@@ -9,12 +9,12 @@
 </form>
 
 <ul>
-  <li *ngFor="let item of tasks$ | async">
+  <li *ngFor="let item of tasks" class="list-item">
     <mat-checkbox
       [checked]="item.done"
       (change)="updateTaskStatus(item, $event.checked)"
     >
-      <span>{{ item.task }}</span>
+      {{ item.task }}
     </mat-checkbox>
     <button mat-icon-button color="warn" (click)="deleteTask(item.id)">
       <mat-icon>delete</mat-icon>

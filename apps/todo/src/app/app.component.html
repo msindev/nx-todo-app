@@ -10,13 +10,19 @@
     class="border-b-1 border-black"
   >
     <mat-tab label="All">
-      <nx-todo-app-todo-list></nx-todo-app-todo-list>
+      <nx-todo-app-todo-list
+        [tasks]="allTasks$ | async"
+      ></nx-todo-app-todo-list>
     </mat-tab>
     <mat-tab label="Active">
-      <nx-todo-app-todo-list></nx-todo-app-todo-list>
+      <nx-todo-app-todo-list
+        [tasks]="activeTasks$ | async"
+      ></nx-todo-app-todo-list>
     </mat-tab>
     <mat-tab label="Completed">
-      <nx-todo-app-todo-list></nx-todo-app-todo-list>
+      <nx-todo-app-todo-list
+        [tasks]="completedTasks$ | async"
+      ></nx-todo-app-todo-list>
     </mat-tab>
   </mat-tab-group>
 </body>
